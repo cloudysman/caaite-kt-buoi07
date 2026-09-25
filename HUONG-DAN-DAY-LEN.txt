@@ -1,4 +1,4 @@
 Huong dan cho nguoi dieu phoi khi day bien the nay len GitHub.
 
-So commit can tao truoc khi nop: dung 3 commit
-Ket qua workflow mong doi tren tab Actions: xanh
+So commit can tao truoc khi nop: 12 commit
+Ket qua workflow mong doi tren tab Actions: xanh, vi khung ci.yml chi co checkout, setup-python va pip install, khong buoc nao that bai

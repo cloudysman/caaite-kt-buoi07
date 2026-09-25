@@ -1,17 +1,31 @@
 name: CI
 
+# ─── trigger: điều kiện để workflow chạy (slide 9) ───────────────────
 on:
   push:
-  pull_request:
+  # ┌── TODO 1 (BẠN LÀM) ──────────────────────────────────────────┐
+  # │ Cho workflow chạy CẢ khi mở pull request. Bỏ dấu # ở dòng dưới:  │
+  # │   pull_request:                                                 │
+  # └──────────────────────────────────────────────────────────────┘
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest          # runner: máy do GitHub cấp (slide 8)
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      # 5 bước theo đúng thứ tự ở slide 11
+      - uses: actions/checkout@v4                 # 1) checkout: lấy mã nguồn về runner
+      - uses: actions/setup-python@v5             # 2) setup: cài môi trường Python
         with:
           python-version: "3.12"
-      - run: pip install -r requirements.txt
-      - run: pytest
-      - run: docker build -t chat-app .
+      - run: pip install -r requirements.txt      # 3) cài thư viện
+
+      # ┌── TODO 2 (BẠN LÀM) ────────────────────────────────────┐
+      # │ 4) chạy kiểm thử: thêm một step chạy pytest. Ví dụ:          │
+      # │      - run: pytest                                          │
+      # └────────────────────────────────────────────────────────────┘
+
+      # ┌── TODO 3 (BẠN LÀM) ────────────────────────────────────┐
+      # │ 5) build image: thêm một step kiểm tra image vẫn build được │
+      # │    (slide 16). Ví dụ:                                        │
+      # │      - run: docker build -t chat-app .                      │
+      # └────────────────────────────────────────────────────────────┘
