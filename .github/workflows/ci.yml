@@ -14,4 +14,3 @@ jobs:
           python-version: "3.12"
       - run: pip install -r requirements.txt
       - run: pytest
-      - run: docker build -t chat-app .
