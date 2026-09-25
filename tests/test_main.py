@@ -20,5 +20,5 @@ def test_health():
     # │ (đặt 500) để bạn tận mắt thấy pytest báo "đỏ".                    │
     # │ Hãy sửa 500 -> 200 rồi chạy lại: pytest phải "xanh".             │
     # │ (Nâng cao — không bắt buộc: kiểm tra thêm response.json().)       │
-    # └──────────────────────────────────────────────────────────────┘
+    # └──────────────────────────────────────────────────────────────────┘
     assert response.status_code == 500
