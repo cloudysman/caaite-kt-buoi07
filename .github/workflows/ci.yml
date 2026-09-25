@@ -13,5 +13,9 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install -r requirements.txt
-      - run: pytest
-      - run: docker build -t chat-app .
+      - name: Chay kiem thu
+        run: |
+          python -m pytest -q
+      - name: Build image
+        run: |
+          docker build -t chat-app .
