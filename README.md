@@ -111,7 +111,7 @@ git push
 
 Lên GitHub → tab **Actions** → chọn lần chạy vừa xong. Bạn sẽ thấy workflow tự chạy và (nếu cục bộ đã xanh) kết quả **màu xanh**.
 
-> Nếu chưa có repo trên GitHub: tạo một repository trống rồi làm theo hướng dẫn "push an existing repository". Nếu không kịp/không có mạng, **`chay_ci.py` xanh là đủ để coi như đạt phần chính**, bước push có thể làm ở nhà.
+> Nếu chưa có repo trên GitHub: tạo một repository trống rồi làm theo hướng dẫn "push an existing repository". Nếu không kịp/không có mạng, **`chay_ci.py` xanh là đủ để coi như đạt phần chính** — bước push có thể làm ở nhà.
 
 ---
 
