@@ -1,0 +1,6 @@
+# Thư viện cần cho bài lab. Cài bằng:  pip install -r requirements.txt
+fastapi            # khung ứng dụng web
+uvicorn            # máy chủ chạy FastAPI
+httpx              # cần cho TestClient khi chạy pytest
+pytest             # công cụ chạy bài kiểm thử
+pyyaml             # để chay_ci.py kiểm tra cú pháp ci.yml
