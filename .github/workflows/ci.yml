@@ -3,7 +3,7 @@ name: CI
 # ─── trigger: điều kiện để workflow chạy (slide 9) ───────────────────
 on:
   push:
-  # ┌── TODO 1 (BẠN LÀM) ──────────────────────────────────────────┐
+  # ┌── TODO 1 (BẠN LÀM) ────────────────────────────────────────────┐
   # │ Cho workflow chạy CẢ khi mở pull request. Bỏ dấu # ở dòng dưới:  │
   # │   pull_request:                                                 │
   # └──────────────────────────────────────────────────────────────┘
@@ -19,12 +19,12 @@ jobs:
           python-version: "3.12"
       - run: pip install -r requirements.txt      # 3) cài thư viện
 
-      # ┌── TODO 2 (BẠN LÀM) ────────────────────────────────────┐
+      # ┌── TODO 2 (BẠN LÀM) ────────────────────────────────────────┐
       # │ 4) chạy kiểm thử: thêm một step chạy pytest. Ví dụ:          │
       # │      - run: pytest                                          │
       # └────────────────────────────────────────────────────────────┘
 
-      # ┌── TODO 3 (BẠN LÀM) ────────────────────────────────────┐
+      # ┌── TODO 3 (BẠN LÀM) ────────────────────────────────────────┐
       # │ 5) build image: thêm một step kiểm tra image vẫn build được │
       # │    (slide 16). Ví dụ:                                        │
       # │      - run: docker build -t chat-app .                      │
