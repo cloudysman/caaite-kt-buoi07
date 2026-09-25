@@ -1,0 +1,4 @@
+Huong dan cho nguoi dieu phoi khi day bien the nay len GitHub.
+
+So commit can tao truoc khi nop: 12 commit (tren nguong 10)
+Ket qua workflow mong doi tren tab Actions: xanh

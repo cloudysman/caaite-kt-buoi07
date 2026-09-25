@@ -1,0 +1,85 @@
+========================================================================
+  BÀI LAB BUỔI 7 — ĐỂ GITHUB TỰ KIỂM THỬ VÀ BUILD MỖI KHI PUSH
+  (CI với GitHub Actions + pytest + cơ chế đỏ/xanh)
+  Thời lượng: 1 giờ 30 phút — làm cá nhân, KHÔNG cần AI
+========================================================================
+
+
+------------------------------------------------------------------------
+1. BỐI CẢNH — CHUYỆN GÌ ĐÃ XẢY RA
+------------------------------------------------------------------------
+
+Đến buổi 6, hệ thống chat của cả lớp đã chạy được qua Docker Compose. Nhưng
+quy trình làm việc vẫn còn một điểm yếu lớn:
+
+    >> Mỗi lần sửa mã nguồn, ai cũng phải TỰ NHỚ chạy kiểm thử và tự build
+       lại bằng tay. Dễ quên, mỗi người làm một kiểu, và lỗi thường bị phát
+       hiện MUỘN — sau khi đã dồn nhiều thay đổi.
+
+Giải pháp là CI (Continuous Integration): để GitHub TỰ ĐỘNG chạy kiểm thử và
+build image mỗi khi có người push mã nguồn. Nếu mọi thứ đạt, lần chạy là
+"XANH". Nếu có lỗi, lần chạy là "ĐỎ" — tín hiệu phải sửa trước khi gộp code.
+
+Một bạn trong nhóm đã bắt đầu dựng CI cho dự án nhưng làm DANG DỞ rồi bàn giao:
+
+    - Đã tạo khung tập tin .github/workflows/ci.yml NHƯNG còn thiếu vài step
+      (chưa có bước chạy pytest, chưa có bước build image, chưa có trigger
+      pull_request).
+    - Đã tạo sẵn ứng dụng (main.py có endpoint /health) và khung bài kiểm thử
+      tests/test_main.py, NHƯNG bài kiểm thử đang CỐ Ý sai nên workflow sẽ ĐỎ.
+    - Trong thư mục loi/ còn 2 tình huống làm workflow ĐỎ, kèm lời dặn:
+      "Ai đọc log giỏi thì tự tìm ra nguyên nhân và sửa cho XANH lại".
+
+
+------------------------------------------------------------------------
+2. NHIỆM VỤ CỦA BẠN — CẦN GIẢI QUYẾT ĐIỀU GÌ
+------------------------------------------------------------------------
+
+Hoàn thiện quy trình CI để đạt một lần chạy workflow màu XANH. Kết thúc buổi,
+phải đạt 3 điều (đây cũng là CHECKPOINT):
+
+    [1] Viết xong .github/workflows/ci.yml: tự động checkout, cài thư viện,
+        chạy pytest và build image mỗi khi push (và khi mở pull request).
+    [2] Viết ít nhất MỘT bài kiểm thử cơ bản cho ứng dụng và làm nó ĐẠT
+        (chuyển từ ĐỎ sang XANH).
+    [3] Đạt một lần chạy workflow màu XANH (kiểm chứng cục bộ bằng chay_ci.py,
+        và/hoặc push lên GitHub rồi xem tab Actions).
+
+Và làm thêm BÀI LAB LỖI (bắt buộc): đọc log của 2 tình huống trong loi/, xác
+định nguyên nhân, rồi sửa cho chúng XANH.
+
+
+------------------------------------------------------------------------
+3. NHỮNG CHỖ BẠN PHẢI TỰ LÀM (tìm chữ "TODO" trong mã nguồn)
+------------------------------------------------------------------------
+
+    a) Bổ sung các step còn thiếu trong .github/workflows/ci.yml.
+    b) Viết bài kiểm thử test_health() trong tests/test_main.py
+       (hiện đang CỐ Ý sai để bạn thấy "đỏ" trước, rồi sửa cho "xanh").
+    c) Chạy chay_ci.py để tự chấm; khi XANH thì push lên GitHub.
+    d) Sửa 2 lỗi trong thư mục loi/.
+
+
+------------------------------------------------------------------------
+4. TIÊU CHÍ ĐẠT (bạn tự chấm được, không cần hỏi ai)
+------------------------------------------------------------------------
+
+Chạy lệnh:  python chay_ci.py
+
+Script này bắt chước đúng các bước trong ci.yml và in kết quả ĐỎ/XANH cho từng
+bước. Khi TẤT CẢ đều XANH tức là bạn đã hoàn thành bài lab chính. Sau đó chạy
+2 file trong loi/ và bảo đảm chúng cũng XANH.
+
+
+------------------------------------------------------------------------
+5. GHI CHÚ
+------------------------------------------------------------------------
+
+- Bài lab KHÔNG cần API key và KHÔNG cần AI. LLM ở đây là "LLM giả lập"
+  (llm.py) — nên bài kiểm thử chạy nhanh, ổn định, và ai cũng làm được.
+- chay_ci.py cho bạn trải nghiệm cơ chế đỏ/xanh NGAY TRÊN MÁY, chưa cần push.
+  Xanh ở máy thì đẩy lên GitHub gần như chắc chắn cũng xanh.
+- Đọc kỹ hướng dẫn từng bước trong README.md.
+- Bí quá thì mở thư mục giai/ để đối chiếu — nhưng hãy TỰ LÀM trước, vì kỹ năng
+  ĐỌC LOG để biết vì sao workflow ĐỎ mới là thứ bạn cần mang theo.
+========================================================================
